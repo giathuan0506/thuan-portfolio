@@ -214,7 +214,7 @@ function renderFromConfig() {
       ? `<a href="${item.reportUrl}" target="_blank" rel="noopener" class="gallery-action-btn" onclick="event.stopPropagation()">📄 View Report</a>`
       : '';
     return (
-      `<div class="gallery-item reveal" data-type="${item.type}">` +
+      `<div class="gallery-item reveal" data-type="${item.type}"${item.videoSrc ? ` data-video-src="${item.videoSrc}"` : ''}>` +
         `<div class="gallery-item-inner ${item.size} ${item.gradient}">` +
           innerContent +
         `</div>` +
@@ -224,6 +224,43 @@ function renderFromConfig() {
       `</div>`
     );
   }).join('');
+
+  // ── Video Modal ───────────────────────────────────────────────────────────
+  const videoModal = document.createElement('div');
+  videoModal.id = 'video-modal';
+  videoModal.className = 'video-modal';
+  videoModal.innerHTML =
+    `<button class="video-modal-close" aria-label="Close">✕</button>` +
+    `<video controls playsinline></video>`;
+  document.body.appendChild(videoModal);
+
+  function openVideoModal(src) {
+    const video = videoModal.querySelector('video');
+    video.src = src;
+    videoModal.classList.add('active');
+    video.play().catch(() => {});
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    const video = videoModal.querySelector('video');
+    video.pause();
+    video.src = '';
+    videoModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (gallery) {
+    gallery.addEventListener('click', (e) => {
+      if (e.target.closest('.gallery-action-btn')) return;
+      const item = e.target.closest('[data-video-src]');
+      if (item) openVideoModal(item.dataset.videoSrc);
+    });
+  }
+
+  videoModal.querySelector('.video-modal-close').addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
 
   // ── Career ─────────────────────────────────────────────────────────────────
   const careerLabel = document.getElementById('career-label');

@@ -1088,6 +1088,65 @@ section {
   background: rgba(255, 255, 255, 0.35);
 }
 
+.gallery-item[data-video-src] .gallery-item-inner::after {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 2;
+}
+.gallery-item[data-video-src]:hover .gallery-item-inner::after { opacity: 1; }
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+.video-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.video-modal video {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.8);
+  background: #000;
+}
+.video-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.3); }
+
 /* ===========================
    Career / Timeline Section
    =========================== */
