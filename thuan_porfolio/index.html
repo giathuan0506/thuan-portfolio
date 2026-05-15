@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="website" />
+  <title></title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Favicon (set by config) -->
+  <link rel="icon" id="favicon" href="" />
+</head>
+<body>
+
+<!-- ============================
+     LOADER
+     ============================ -->
+<div id="loader">
+  <div class="loader-logo" id="loader-logo"></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ============================
+     MOBILE MENU
+     ============================ -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">✕</button>
+  <ul class="mobile-nav-links">
+    <li><a href="#about">👤 About</a></li>
+    <li><a href="#skills">⚡ Skills</a></li>
+    <li><a href="#projects">🚀 Projects</a></li>
+    <li><a href="#creative">🎨 Creative</a></li>
+    <li><a href="#career">🗺 Career</a></li>
+    <li><a href="#contact">📬 Contact</a></li>
+  </ul>
+  <div style="display:flex;gap:1rem;align-items:center;">
+    <button id="mobileThemeToggle" class="theme-toggle">☀️</button>
+    <a href="#contact" class="btn-primary">Hire Me</a>
+  </div>
+</nav>
+
+<!-- ============================
+     NAVBAR
+     ============================ -->
+<header style="position:fixed;top:0;left:0;right:0;z-index:1000;">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" id="nav-logo"></a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#creative">Creative</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">☀️</button>
+      <a id="nav-resume-btn" href="" download class="nav-cta">Download CV</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section id="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-content">
+    <!-- Left: Text -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span id="hero-badge-text"></span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title"></h1>
+
+      <p class="hero-desc" id="hero-desc"></p>
+
+      <div class="hero-actions" id="hero-actions"></div>
+
+      <div class="hero-stats" id="hero-stats"></div>
+    </div>
+
+    <!-- Right: Avatar -->
+    <div class="hero-visual">
+      <div class="hero-avatar-wrap" id="hero-avatar-wrap">
+        <div class="hero-avatar-ring-2"></div>
+        <div class="hero-avatar-ring"></div>
+        <div class="hero-avatar-placeholder" id="hero-avatar" aria-label="Profile photo"></div>
+        <!-- floating badges injected by config -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     ABOUT
+     ============================ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Image -->
+      <div class="about-image-wrap reveal-left">
+        <div class="about-image-placeholder" id="about-avatar" aria-label="About photo"></div>
+        <div class="about-experience-card">
+          <span class="number" id="about-years" data-counter data-suffix="+">3+</span>
+          <span class="label">Years Building</span>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content reveal-right">
+        <p class="section-label" id="about-label"></p>
+        <h2 class="section-title" id="about-title"></h2>
+        <div id="about-paragraphs"></div>
+        <div class="about-cards" id="about-cards"></div>
+        <a id="about-resume-btn" href="" download class="btn-primary" style="width:fit-content">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     SKILLS
+     ============================ -->
+<section id="skills">
+  <div class="container">
+    <div class="skills-header reveal">
+      <p class="section-label" id="skills-label"></p>
+      <h2 class="section-title" id="skills-title"></h2>
+      <p class="section-desc" id="skills-desc"></p>
+    </div>
+
+    <!-- Skill categories injected by config -->
+    <div class="skills-grid" id="skills-grid"></div>
+
+    <!-- Tech badges injected by config -->
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label" style="margin-bottom:1rem;">Also comfortable with</p>
+      <div class="tech-badges" id="tech-badges"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     PROJECTS
+     ============================ -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label" id="projects-label"></p>
+        <h2 class="section-title" id="projects-title"></h2>
+      </div>
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI / ML</button>
+        <button class="filter-btn" data-filter="web">Web Dev</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
+    </div>
+
+    <!-- Project cards injected by config -->
+    <div class="projects-grid" id="projects-grid"></div>
+
+    <!-- GitHub live projects injected by fetchGitHubProjects() -->
+    <div id="github-projects" class="projects-grid" style="margin-top:1.5rem;"></div>
+
+    <div class="reveal" style="text-align:center;margin-top:3rem;">
+      <a id="view-all-github" href="#" target="_blank" rel="noopener" class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        <span id="view-all-label"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CREATIVE WORK
+     ============================ -->
+<section id="creative">
+  <div class="container">
+    <div class="creative-header reveal">
+      <p class="section-label" id="creative-label"></p>
+      <h2 class="section-title" id="creative-title"></h2>
+      <p class="section-desc" id="creative-desc" style="margin:0 auto;"></p>
+    </div>
+
+    <div class="creative-tabs reveal">
+      <button class="tab-btn active" data-tab="all">All Work</button>
+      <button class="tab-btn" data-tab="ui">UI Design</button>
+      <button class="tab-btn" data-tab="ai-art">AI Art</button>
+      <button class="tab-btn" data-tab="motion">Motion</button>
+      <button class="tab-btn" data-tab="branding">Branding</button>
+    </div>
+
+    <!-- Gallery items injected by config -->
+    <div class="creative-gallery" id="creative-gallery"></div>
+  </div>
+</section>
+
+<!-- ============================
+     CAREER TIMELINE
+     ============================ -->
+<section id="career">
+  <div class="container">
+    <div class="career-header reveal">
+      <p class="section-label" id="career-label"></p>
+      <h2 class="section-title" id="career-title"></h2>
+      <p class="section-desc" id="career-desc" style="margin:0 auto;"></p>
+    </div>
+
+    <div class="career-layout">
+      <!-- Timeline injected by config -->
+      <div>
+        <h3 style="margin-bottom:2rem;font-size:1.25rem;color:var(--text-secondary);">Experience</h3>
+        <div class="timeline" id="timeline"></div>
+      </div>
+
+      <!-- Ambitions injected by config -->
+      <div class="ambitions-section">
+        <h3 style="margin-bottom:2rem;font-size:1.25rem;color:var(--text-secondary);">Where I'm Headed</h3>
+        <div class="ambition-cards" id="ambition-cards"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CONTACT
+     ============================ -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label" id="contact-label"></p>
+      <h2 class="section-title" id="contact-title"></h2>
+    </div>
+
+    <div class="contact-card reveal">
+      <p class="contact-desc" id="contact-desc"></p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+          Send Message →
+        </button>
+      </form>
+
+      <!-- Social links injected by config -->
+      <div class="contact-socials" id="contact-socials"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo" id="footer-logo"></div>
+    <p class="footer-text" id="footer-text"></p>
+    <div class="footer-links" id="footer-links"></div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- Scripts -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
