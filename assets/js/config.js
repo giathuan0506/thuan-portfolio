@@ -136,7 +136,7 @@ const PORTFOLIO_CONFIG = {
         title:           'AI Luxury Serum Ad',
         desc:            'A high-end product commercial created via a full AI pipeline: ChatGPT for concepting, Dreamina for motion generation, and Canva for visual messaging optimization.',
         tags:            ['GenAI', 'Dreamina', 'Canva', 'Motion'],
-        language:        { name: 'AI Motion', color: '#3572A5' },
+        language:        { name: 'AI Motion', color: '#ec4899' },
       },
       {
         category: 'ai',
@@ -153,7 +153,8 @@ const PORTFOLIO_CONFIG = {
         title:    'Drink Detection System',
         desc:     'Real-time beverage recognition system using YOLOv8, trained on a custom dataset with a Gradio-based web interface.',
         tags:     ['YOLOv8', 'Gradio', 'Computer Vision'],
-        language: { name: 'Python', color: '#ec4899' },
+        github:   'https://github.com/giathuan0506/drinks_detection_project',
+        language: { name: 'Python', color: '#3572A5' },
       },
       {
         category: 'ai',
@@ -162,7 +163,7 @@ const PORTFOLIO_CONFIG = {
         desc:     'Automated data extraction pipeline for invoices using VLM models and VietOCR, reducing manual entry time by 80%.',
         tags:     ['OCR', 'VietOCR', 'Automation'],
         github:   'https://github.com/giathuan0506/INVOICE_EXTRACTION',
-        language: { name: 'Python', color: '#f1e05a' },
+        language: { name: 'Python', color: '#3572A5' },
       },
     ],
   },
